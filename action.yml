@@ -7,11 +7,11 @@ inputs:
   gh_pages_url:
     description: "gh_page_ url"
     required: false
-    default: https://tetrisiq.github.io/bearer-pr-test/
+    default: "https://tetrisiq.github.io/bearer-pr-test/"
   ph_page_repo:
     description: "ph_page_repo"
     required: false
-    default: https://github.com/TetrisIQ/bearer-pr-test
+    default: "TetrisIQ/bearer-pr-test"
 
 runs:
   using: "composite"
