@@ -5,11 +5,11 @@ inputs:
     description: "GitHub Token from the repository"
     required: true
   gh_pages_url:
-    description: "gh_page_ url"
+    description: "gh page url"
     required: false
     default: "https://tetrisiq.github.io/bearer-pr-test/"
   ph_pages_repo:
-    description: "ph_page_repo"
+    description: "ph page repo"
     required: false
     default: "TetrisIQ/bearer-pr-test"
 
@@ -50,7 +50,7 @@ runs:
             return comment.user.type === 'Bot' && comment.body.includes('https://avatars.githubusercontent.com/u/36886676?s=48&v=4')
           })
 
-          const commentBody = "# \![](https://avatars.githubusercontent.com/u/36886676?s=48&v=4) Bearer Report\nWe found some issues in your `code`:\nTake a look at the report here: ${{ inputs.gh_pages_url }}pr/${{ github.event.number }}/security/securityTest.html";
+          const commentBody = "# \![](https://avatars.githubusercontent.com/u/36886676?s=48&v=4) Bearer Report\nWe found some issues in your `code`:\nTake a look at the report here: ${{ inputs.gh_pages_url }}${{ github.repository }}/pr/${{ github.event.number }}/security/securityTest.html";
 
           if (botComment) {
             github.rest.issues.updateComment({
