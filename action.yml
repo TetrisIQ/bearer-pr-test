@@ -21,6 +21,7 @@ runs:
         output: securityTest.json
         exit-code: 0
     - id: findings
+      shell: bash
       run: echo security_finding=$(cat securityTest.json | jq '. != {}')  >> $GITHUB_OUTPUT
 
     - id: gen_html
