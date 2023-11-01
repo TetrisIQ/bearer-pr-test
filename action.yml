@@ -39,7 +39,6 @@ runs:
       name: "Comment to PR"
       with:
         script: |
-          // 1. Retrieve existing bot comments for the PR
           const { data: comments } = await github.rest.issues.listComments({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -51,7 +50,6 @@ runs:
 
           const commentBody = "# \![](https://avatars.githubusercontent.com/u/36886676?s=48&v=4) Bearer Report\nWe found some issues in your `code`:\nTake a look at the report here: ${{ env.gh_pages_url }}pr/${{ github.event.number }}/security/securityTest.html";
 
-          // 3. If we have a comment, update it, otherwise create a new one
           if (botComment) {
             github.rest.issues.updateComment({
               owner: context.repo.owner,
