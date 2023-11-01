@@ -5,7 +5,6 @@ inputs:
     description: "GitHub Token from the repository"
     required: true
 
-
 env:
   gh_pages_url: https://tetrisiq.github.io/bearer-pr-test/
   ph_page_repo: TetrisIQ/bearer-pr-test
@@ -72,8 +71,8 @@ runs:
       with:
         name: securityHTML
         path: securityTest.html
-          
-    - id: checkout      
+
+    - id: checkout
       if: steps.findings.outputs.security_finding == 'true'
       uses: actions/checkout@v4
       with:
@@ -82,18 +81,17 @@ runs:
 
     - id: download_artifact
       if: steps.findings.outputs.security_finding == 'true'
-      - uses: actions/download-artifact@v3
-        with:
-          name: securityHTML
-          path: ${{ github.repository }}/pr/${{ github.event.number }}/security
+      uses: actions/download-artifact@v3
+      with:
+        name: securityHTML
+        path: ${{ github.repository }}/pr/${{ github.event.number }}/security
 
     - id: upload_html_to_page
       if: steps.findings.outputs.security_finding == 'true'
       name: "Upload to GH Page branch"
       run: |
-          git config --global user.name 'TetrisIQ'
-          git config --global user.email '24246993+TetrisIQ@users.noreply.github.com'
-          git add . 
-          git commit -am "Automated report"
-          git push
-
+        git config --global user.name 'TetrisIQ'
+        git config --global user.email '24246993+TetrisIQ@users.noreply.github.com'
+        git add . 
+        git commit -am "Automated report"
+        git push
