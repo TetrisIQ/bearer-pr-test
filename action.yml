@@ -8,7 +8,7 @@ inputs:
     description: "gh_page_ url"
     required: false
     default: "https://tetrisiq.github.io/bearer-pr-test/"
-  ph_page_repo:
+  ph_pages_repo:
     description: "ph_page_repo"
     required: false
     default: "TetrisIQ/bearer-pr-test"
@@ -76,7 +76,7 @@ runs:
         path: securityTest.html
 
     - id: open_groupe
-      run: echo ${{ inputs.gh_page_repo }}
+      run: echo ${{ inputs.ph_pages_repo }} ${{ inputs.gh_pages_url }}
       shell: bash
 
     - id: checkout
@@ -84,7 +84,7 @@ runs:
       uses: actions/checkout@v4
       with:
         ref: gh-pages
-        repository: "${{ inputs.gh_page_repo }}"
+        repository: "${{ inputs.ph_pages_repo }}"
         token: ${{ inputs.GIT_TOKEN }}
 
     - id: download_artifact
