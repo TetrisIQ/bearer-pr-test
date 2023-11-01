@@ -11,7 +11,7 @@ inputs:
   ph_page_repo:
     description: "ph_page_repo"
     required: false
-    default: TetrisIQ/bearer-pr-test
+    default: https://github.com/TetrisIQ/bearer-pr-test
 
 runs:
   using: "composite"
