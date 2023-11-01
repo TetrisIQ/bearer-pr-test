@@ -1,9 +1,9 @@
 name: "bearer-pr-test"
 description: ""
-inputs:
-  test:
-    description: "test"
-    required: false
+# inputs:
+#   test:
+#     description: "test"
+#     required: false
 
 env:
   gh_pages_url: https://tetrisiq.github.io/bearer-pr-test/
