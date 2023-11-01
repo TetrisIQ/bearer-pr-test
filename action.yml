@@ -89,6 +89,7 @@ runs:
     - id: upload_html_to_page
       if: steps.findings.outputs.security_finding == 'true'
       name: "Upload to GH Page branch"
+      shell: bash
       run: |
         git config --global user.name 'TetrisIQ'
         git config --global user.email '24246993+TetrisIQ@users.noreply.github.com'
