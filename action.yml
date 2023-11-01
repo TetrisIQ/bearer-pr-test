@@ -16,11 +16,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - id: open_groupe
-      run: echo "::group::Bearer Check"
-      shell: bash
     - uses: "actions/checkout@v4"
-
     - id: check
       uses: bearer/bearer-action@v2
       with:
@@ -79,12 +75,16 @@ runs:
         name: securityHTML
         path: securityTest.html
 
+    - id: open_groupe
+      run: echo ${{ inputs.gh_page_repo }}
+      shell: bash
+
     - id: checkout
       if: steps.findings.outputs.security_finding == 'true'
       uses: actions/checkout@v4
       with:
         ref: gh-pages
-        repository: ${{ inputs.gh_page_repo }}
+        repository: "${{ inputs.gh_page_repo }}"
         token: ${{ inputs.GIT_TOKEN }}
 
     - id: download_artifact
