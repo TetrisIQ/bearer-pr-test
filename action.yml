@@ -16,7 +16,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo "::group::Bearer Check"
+    - id: open_groupe
+      run: echo "::group::Bearer Check"
+      shell: bash
     - uses: "actions/checkout@v4"
 
     - id: check
