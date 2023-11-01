@@ -1,7 +1,7 @@
 name: "bearer-pr-test"
 description: ""
 inputs:
-  GITHUB_TOKEN:
+  GIT_TOKEN:
     description: "GitHub Token from the repository"
     required: true
   gh_pages_url:
@@ -82,7 +82,7 @@ runs:
       with:
         ref: gh-pages
         repository: ${{ inputs.gh_page_repo }}
-        token: ${{ inputs.GITHUB_TOKEN }}
+        token: ${{ inputs.GIT_TOKEN }}
 
     - id: download_artifact
       if: steps.findings.outputs.security_finding == 'true'
