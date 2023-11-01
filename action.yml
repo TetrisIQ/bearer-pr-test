@@ -75,10 +75,6 @@ runs:
         name: securityHTML
         path: securityTest.html
 
-    - id: open_groupe
-      run: echo ${{ inputs.ph_pages_repo }} ${{ inputs.gh_pages_url }}
-      shell: bash
-
     - id: checkout
       if: steps.findings.outputs.security_finding == 'true'
       uses: actions/checkout@v4
@@ -104,4 +100,3 @@ runs:
         git add . 
         git commit -am "Automated report"
         git push
-        echo "::endgroup::"
