@@ -69,16 +69,16 @@ runs:
     - id: upload_artifact
       if: steps.findings.outputs.security_finding == 'true'
       uses: actions/upload-artifact@v3
-        with:
-          name: securityHTML
-          path: securityTest.html
+      with:
+        name: securityHTML
+        path: securityTest.html
           
     - id: checkout      
       if: steps.findings.outputs.security_finding == 'true'
       uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          repository: ${{ env.gh_page_repo }}
+      with:
+        ref: gh-pages
+        repository: ${{ env.gh_page_repo }}
 
     - id: download_artifact
       if: steps.findings.outputs.security_finding == 'true'
