@@ -78,6 +78,7 @@ runs:
       with:
         ref: gh-pages
         repository: ${{ env.gh_page_repo }}
+        token: ${{ inputs.GITHUB_TOKEN }}
 
     - id: download_artifact
       if: steps.findings.outputs.security_finding == 'true'
