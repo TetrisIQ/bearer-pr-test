@@ -16,6 +16,7 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: echo "::group::Bearer Check"
     - uses: "actions/checkout@v4"
 
     - id: check
@@ -101,3 +102,4 @@ runs:
         git add . 
         git commit -am "Automated report"
         git push
+        echo "::endgroup::"
