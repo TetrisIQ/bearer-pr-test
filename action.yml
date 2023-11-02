@@ -107,7 +107,7 @@ runs:
       run: exit 1
 
     # Solve comment if findings get false
-    - id: fail_if_findings
+    - id: solve_comment
       if: steps.findings.outputs.security_finding == 'false'
       uses: actions/github-script@v6
       name: "Solve Comment on PR"
